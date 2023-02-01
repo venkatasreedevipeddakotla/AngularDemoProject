@@ -1,0 +1,17 @@
+<div>
+    <form #prform="ngForm" (ngSubmit)="saveproduct(prform.value)" class="was-validated">
+    Enter Pid:
+    <input type="number" name="pid"[(ngModel)]="p.pid" #pid=ngModel required/><br>
+    <span class="invalid-feedback" *ngIf="pid.touched && pid.invalid">Pid is mandatory field</span><br>
+    Enter Pname:
+    <input type="text" name="pname" [(ngModel)]="p.pname" #pname=ngModel minlength="5" required/><br>
+    <span class="invalid-feedback" *ngIf="pname.touched && pname.invalid">Product name should be minimum of 5 characters</span><br>
+    Enter Price:
+    <input type="number" name="price" [(ngModel)]="p.price" #price=ngModel min="5000" max="15000"/><br>
+    <span class="invalid-feedback" *ngIf="price.touched && price.invalid">Price is in between 5000-15000</span><br>
+
+    <input type="submit" [disabled]= !prform.valid value="save Product" class="primary"/>
+    <br>
+</form>
+</div>
+{{prform.value|json}}

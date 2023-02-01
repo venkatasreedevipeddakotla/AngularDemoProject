@@ -1,0 +1,19 @@
+<div>
+    <h1 *ngIf="message!=null">{{message}} </h1>
+    <form #srform="ngForm" (ngSubmit)="savesupplier(srform.value)" class="was-validated">
+    Enter Sid:
+    <input type="number" name="sid"[(ngModel)]="s.sid" #sid=ngModel required/><br>
+    <span class="invalid-feedback" *ngIf="sid.touched && sid.invalid">Sid is mandatory field</span><br>
+    Enter Sname:
+    <input type="text" name="sname" [(ngModel)]="s.sname" #sname=ngModel minlength="3" required/><br>
+    <span class="invalid-feedback" *ngIf="sname.touched && sname.invalid">Supplier name should be minimum of 3 characters</span><br>
+    Enter Location:
+    <input type="text" name="location" [(ngModel)]="s.location" #location=ngModel minlength="3"/><br>
+    <span class="invalid-feedback" *ngIf="location.touched && location.invalid">Location should be minimum of 3 characters</span><br>
+
+    <input type="submit" [disabled]= !srform.valid value="save Supplier" class="primary"/>
+    <button type="reset" > Clear </button>
+    <br>
+</form>
+</div>
+{{srform.value|json}}

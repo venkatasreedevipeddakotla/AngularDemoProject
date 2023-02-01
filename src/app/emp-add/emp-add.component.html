@@ -1,0 +1,9 @@
+<div>
+    <form>
+        Eid: <input type="text" [(ngModel)]="e.eid" name="eid" required/><br>
+        Ename: <input type="text" [(ngModel)]="e.ename" name="ename" minlength="3"/><br>
+        Salary: <input type="text" [(ngModel)]="e.salary" name="salary"/><br>
+        Doj: <input type="date" [(ngModel)]="e.doj" name="doj"/><br>
+        <input type="submit" value="Register" (click)="save()" class="primary"/>
+    </form>
+</div>
