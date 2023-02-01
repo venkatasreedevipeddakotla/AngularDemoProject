@@ -1,0 +1,24 @@
+<div style="margin-top:100px;">
+    {{message}}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Supplier Id</th>
+                <th>Supplier Name</th>
+                <th>Location</th>
+    
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of supplierlst">
+                <td>{{s.sid}}</td>
+                <td>{{s.sname}}</td>
+                <td>{{s.location}}</td>
+                <td>
+                    <a routerLink="/editsupplier/{{s.sid}}" > Edit Supplier | </a>
+                    <button type=button class="btn btn-primary"  (click)="clickMethod(s)">Delete me</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
